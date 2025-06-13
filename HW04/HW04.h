@@ -21,16 +21,16 @@ public:
 class BookManager {
 private:
 	vector<Book> books;
-	Book* searchByTitle(string title);
-	vector<Book*> searchByAuthor(string author);
+	Book* searchByTitle(const string& title);
+	vector<Book*> searchByAuthor(const string& author);
 
 public:
 	BookManager() {}
 
-	void addBook(string title, string author);
+	void addBook(const string& title, const  string& author);
 	void displayAllBooks();
-	Book* getByTitle(string title);
-	vector<Book*> getByAuthor(string author);
+	Book* getByTitle(const string& title);
+	vector<Book*> getByAuthor(const string& author);
 
 };
 
@@ -42,9 +42,11 @@ private:
 public:
 	BorrowManager(BookManager& bm) :bookManager(bm) {}
 	void initializeStock(Book* book, int quantity = max_quantity);
-	void borrowBookByTitle(string title);
-	void returnBook(string title);
-	void displayStock();
+	void borrowBookByTitle(const string& title);
+	void returnBook(const string& title);
+	void displayAllStock();
+	void displayStockByTitle(const string& title);
+	void displayStockByAuthor(const string& author);
 };
 
 
